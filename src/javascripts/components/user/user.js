@@ -2,6 +2,7 @@ import userData from '../../helpers/data/userData';
 import utils from '../../helpers/utils';
 
 import carduser from '../carduser/carduser';
+import singleUser from '../singleUser/singleUser';
 
 const buildUser = () => {
   userData.getUser()
@@ -14,6 +15,7 @@ const buildUser = () => {
       });
       domString += '</div>';
       utils.printToDom('user', domString);
+      $('body').on('click', '.user-cards', singleUser.buildSingleUser);
     })
     .catch((err) => console.error('get user broke', err));
 };

@@ -17,4 +17,6 @@ const getUser = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getUser };
+const getUserById = (userId) => axios.get(`${baseUrl}/user/${userId}.json`);
+
+export default { getUser, getUserById };
