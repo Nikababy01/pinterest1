@@ -1,0 +1,26 @@
+{
+	"board1": {
+    "name": "Drinks",
+    "description": "Margaritas",
+		"Uid": "123"
+
+	},
+	"board2": {
+		"name": "Decor",
+    "description": "Bedroom",
+		"Uid": "789"
+
+	},
+	"board3": {
+		"name": "Fitness",
+    "description": "Lower-Body",
+		"Uid": "456"
+
+	},
+	"board4": {
+		"name": "Food",
+    "description": "Pies",
+		"Uid": "911"
+
+	}
+}

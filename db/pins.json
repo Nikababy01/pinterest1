@@ -1,0 +1,21 @@
+{
+	"pin1": {
+    "imageUrl": "bedroom pic",
+    "boardId": "231"
+	
+	},
+	"pin2": {
+    "imageUrl": "fitnesspic",
+    "boardId": "31"
+	},
+	"pin3": {
+    "imageUrl": "pizza pic",
+    "boardId": "32"
+
+	},
+	"pin4": {
+    "imageUrl": "fitnesspic",
+    "boardId": "31"
+
+	}
+}
