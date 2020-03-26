@@ -2,6 +2,7 @@ import boardData from '../../helpers/data/boardData';
 import utils from '../../helpers/utils';
 import cardboard from '../cardboard/cardboard';
 
+
 const buildBoard = () => {
   boardData.getBoards()
     .then((board) => {

@@ -1,6 +1,6 @@
 const userMaker = (user) => {
   let domString = '';
-  domString += '<div class= "card">';
+  domString += `<div class= "card user-cards" id=${user.id}>`;
   domString += `<div class= "card-header">${user.name}</div>`;
   domString += '<div class= "card-body">';
   domString += `<h5 class= "card-title">${user.id}</h5>`;
