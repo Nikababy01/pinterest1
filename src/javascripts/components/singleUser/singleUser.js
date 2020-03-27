@@ -1,11 +1,10 @@
-import userData from '../../helpers/data/userData';
+import smash from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 
 const buildSingleUser = (e) => {
   const userId = e.target.closest('.card').id;
-  userData.getUserById(userId)
-    .then((response) => {
-      const singleUser = response.data;
+  smash.getSingleUserwithBoards(userId)
+    .then((singleUser) => {
       let domString = '';
       domString += '<h2 class="text-center"> User </h2>';
       domString += '<div class="col-12">';

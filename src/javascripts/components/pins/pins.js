@@ -6,7 +6,7 @@ const buildPins = () => {
   pinsData.getPins()
     .then((pins) => {
       let domString = '';
-      domString += '<h2>Pins</h2>';
+      domString += '<h2 class="text-center">Pins</h2>';
       domString += '<div class= "d-flex flex-wrap">';
       pins.forEach((pin) => {
         domString += cardpins.pinsMaker(pin);
