@@ -1,21 +1,21 @@
 {
 	"pin1": {
     "imageUrl": "bedroom pic",
-    "boardId": "231"
+    "boardId": "board2"
 	
 	},
 	"pin2": {
     "imageUrl": "fitnesspic",
-    "boardId": "31"
+    "boardId": "board3"
 	},
 	"pin3": {
-    "imageUrl": "pizza pic",
-    "boardId": "32"
+    "imageUrl": "peach cobblerpic",
+    "boardId": "board4"
 
 	},
 	"pin4": {
-    "imageUrl": "fitnesspic",
-    "boardId": "31"
+    "imageUrl": "margarita",
+    "boardId": "board1"
 
 	}
 }
