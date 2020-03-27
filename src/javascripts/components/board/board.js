@@ -1,6 +1,16 @@
 import boardData from '../../helpers/data/boardData';
-import utils from '../../helpers/utils';
 import cardboard from '../cardboard/cardboard';
+import singleUser from '../singleUser/singleUser';
+import utils from '../../helpers/utils';
+
+const deleteBoard = (e) => {
+  const boardId = e.target.closest('.card').id;
+  console.error('boardId', boardId);
+  boardData.deleteBoard(boardId)
+    // eslint-disable-next-line no-use-before-define
+    .then(() => buildBoard())
+    .catch((err) => console.error('could not delete board', err));
+};
 
 
 const buildBoard = () => {
@@ -14,6 +24,8 @@ const buildBoard = () => {
       });
       domString += '</div>';
       utils.printToDom('board', domString);
+      $('body').on('click', '.board-cards', singleUser.buildSingleUser);
+      $('body').on('click', '.delete-board', deleteBoard);
     })
     .catch((err) => console.error('get board broke', err));
 };
