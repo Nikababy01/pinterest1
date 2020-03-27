@@ -7,7 +7,7 @@ const buildBoard = () => {
   boardData.getBoards()
     .then((board) => {
       let domString = '';
-      domString += '<h2>Boards</h2>';
+      domString += '<h2 class="text-center">Boards</h2>';
       domString += '<div class= "d-flex flex-wrap">';
       board.forEach((boards) => {
         domString += cardboard.boardMaker(boards);

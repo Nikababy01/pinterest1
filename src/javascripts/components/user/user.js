@@ -8,8 +8,8 @@ const buildUser = () => {
   userData.getUser()
     .then((user) => {
       let domString = '';
-      domString += '<h2>User</h2>';
-      domString += '<div class= "d-flex flex-wrap">';
+      domString += '<h2 class="text-center">User</h2>';
+      domString += '<div class="d-flex flex-wrap">';
       user.forEach((users) => {
         domString += carduser.userMaker(users);
       });

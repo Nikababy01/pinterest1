@@ -1,18 +1,19 @@
 import axios from 'axios';
 import apiKeys from '../apiKeys.json';
 
+
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getBoards = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/board.json`)
     .then((response) => {
       const myBoards = response.data;
-      const boards = [];
+      const board = [];
       Object.keys(myBoards).forEach((boardId) => {
         myBoards[boardId].id = boardId;
-        boards.push(myBoards[boardId]);
+        board.push(myBoards[boardId]);
       });
-      resolve(boards);
+      resolve(board);
     })
     .catch((err) => reject(err));
 });
