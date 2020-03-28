@@ -1,11 +1,11 @@
-import boardData from './boardData';
+import userData from './userData';
 
 
-const getSingleUserwithBoards = (boardId) => new Promise((resolve, reject) => {
-  boardData.getUserById(boardId)
+const getSingleUserwithBoards = (userId) => new Promise((resolve, reject) => {
+  userData.getUserById(userId)
     .then((response) => {
-      const board = response.data;
-      resolve(board);
+      const user = response.data;
+      resolve(user);
     })
     .catch((err) => reject(err));
 });

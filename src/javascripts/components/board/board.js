@@ -1,6 +1,7 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import boardData from '../../helpers/data/boardData';
 import cardboard from '../cardboard/cardboard';
-import singleUser from '../singleUser/singleUser';
 import utils from '../../helpers/utils';
 
 const deleteBoard = (e) => {
@@ -12,19 +13,18 @@ const deleteBoard = (e) => {
     .catch((err) => console.error('could not delete board', err));
 };
 
-
 const buildBoard = () => {
-  boardData.getBoards()
-    .then((board) => {
+  const myUid = firebase.auth().currentUser.uid;
+  boardData.getBoardsByUid(myUid)
+    .then((boards) => {
       let domString = '';
       domString += '<h2 class="text-center">Boards</h2>';
       domString += '<div class= "d-flex flex-wrap">';
-      board.forEach((boards) => {
-        domString += cardboard.boardMaker(boards);
+      boards.forEach((board) => {
+        domString += cardboard.boardMaker(board);
       });
       domString += '</div>';
       utils.printToDom('board', domString);
-      $('body').on('click', '.board-cards', singleUser.buildSingleUser);
       $('body').on('click', '.delete-board', deleteBoard);
     })
     .catch((err) => console.error('get board broke', err));

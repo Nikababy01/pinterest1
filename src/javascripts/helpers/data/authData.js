@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+
 import userComponent from '../../components/user/user';
 import pins from '../../components/pins/pins';
 import board from '../../components/board/board';
