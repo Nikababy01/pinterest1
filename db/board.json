@@ -2,25 +2,25 @@
 	"board1": {
     "name": "Drinks",
     "description": "Margaritas",
-		"Uid": "UWKG9KD3FYWqrXlp7H9auzQIXrg1"
+		"uid": "UWKG9KD3FYWqrXlp7H9auzQIXrg1"
 
 	},
 	"board2": {
 		"name": "Decor",
     "description": "Bedroom",
-		"Uid": "UWKG9KD3FYWqrXlp7H9auzQIXrg1"
+		"uid": "UWKG9KD3FYWqrXlp7H9auzQIXrg1"
 
 	},
 	"board3": {
 		"name": "Fitness",
     "description": "Lower-Body",
-		"Uid": "UWKG9KD3FYWqrXlp7H9auzQIXrg1"
+		"uid": "UWKG9KD3FYWqrXlp7H9auzQIXrg1"
 
 	},
 	"board4": {
 		"name": "Food",
     "description": "Pies",
-		"Uid": "UWKG9KD3FYWqrXlp7H9auzQIXrg1"
+		"uid": "12345"
 
 	}
 }
