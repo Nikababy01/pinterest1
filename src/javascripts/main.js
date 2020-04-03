@@ -14,6 +14,7 @@ const init = () => {
   authData.checkLoginStatus();
   auth.loginButton();
   myNavbar.logoutEvent();
+  myNavbar.backToBoards();
   $('body').on('mouseenter', '.user-cards', (e) => e.target.closest('.card').classList.add('bg-danger'));
   $('body').on('mouseleave', '.user-cards', (e) => e.target.closest('.card').classList.remove('bg-danger'));
 };
