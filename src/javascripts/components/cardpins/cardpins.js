@@ -1,10 +1,12 @@
+import './cardpins.scss';
+
 const pinsMaker = (pins) => {
   let domString = '';
   domString += '<div class="col-3">';
-  domString += `<div class= "card" id= ${pins.id}>`;
-  domString += `<div class= "card-header">${pins.imageUrl}</div>`;
+  domString += `<div class= "card pins-cards" id=${pins.id}>`;
+  domString += '<div class= "card-header"></div>';
   domString += '<div class= "card-body">';
-  domString += `<h5 class= "card-title">${pins.imageUrl}</h5>`;
+  domString += `<img class = "card-img-top" src= "${pins.imageUrl}" alt= "card image">`;
   domString += '<button class="btn btn-danger delete-pins"><i class="fas fa-trash-alt"></i></button>';
   domString += '</div>';
   domString += '</div>';
