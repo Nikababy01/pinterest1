@@ -19,7 +19,9 @@ const buildBoard = () => {
   boardData.getBoardsByUid(myUid)
     .then((boards) => {
       let domString = '';
+      domString += '<div class="jumbotron">';
       domString += '<h2 class="text-center">Monique Boards</h2>';
+      domString += '</div>';
       domString += '<div class= "d-flex flex-wrap">';
       boards.forEach((board) => {
         domString += cardboard.boardMaker(board);
