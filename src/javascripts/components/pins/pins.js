@@ -1,5 +1,8 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 import pinsData from '../../helpers/data/pinsData';
-// import boardData from '../../helpers/data/boardData';
+import boardData from '../../helpers/data/boardData';
 // import singleUser from '../singleUser/singleUser';
 import utils from '../../helpers/utils';
 import cardpins from '../cardpins/cardpins';
@@ -18,14 +21,16 @@ const deletePins = (e) => {
 };
 
 
-const buildPins = () => {
-  pinsData.getPins()
+const buildPins = (selectedBoard) => {
+  pinsData.getPins(selectedBoard)
     .then((pins) => {
       let domString = '';
       domString += '<h2 class="text-center">Pins</h2>';
       domString += '<div class= "d-flex flex-wrap">';
       pins.forEach((pin) => {
-        domString += cardpins.pinsMaker(pin);
+        if (pin.boardId === selectedBoard.id) {
+          domString += cardpins.pinsMaker(pin);
+        }
         pinsDiv.removeClass('hide');
         boardDiv.addClass('hide');
         logoutButton.addClass('hide');
@@ -38,4 +43,17 @@ const buildPins = () => {
     .catch((err) => console.error('get pins broke', err));
 };
 
-export default { buildPins };
+const viewSingleBoard = (e) => {
+  const myUid = firebase.auth().currentUser.uid;
+  boardData.getBoardsByUid(myUid)
+    .then((boards) => {
+      const boardId = e.target.closest('.card').id;
+      const selectedBoard = boards.find((currentBoard) => boardId === currentBoard.id);
+      buildPins(selectedBoard);
+      console.log('selected', selectedBoard);
+    })
+    .catch((err) => console.error('messed up', err));
+};
+
+
+export default { buildPins, viewSingleBoard };
