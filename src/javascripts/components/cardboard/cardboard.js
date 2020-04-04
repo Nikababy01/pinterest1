@@ -12,7 +12,6 @@ const boardMaker = (board) => {
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
-  console.log('board Maker', board);
   return domString;
 };
 

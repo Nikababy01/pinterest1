@@ -50,7 +50,6 @@ const viewSingleBoard = (e) => {
       const boardId = e.target.closest('.card').id;
       const selectedBoard = boards.find((currentBoard) => boardId === currentBoard.id);
       buildPins(selectedBoard);
-      console.log('selected', selectedBoard);
     })
     .catch((err) => console.error('messed up', err));
 };
