@@ -20,7 +20,13 @@
 	"board4": {
 		"name": "Food",
     "description": "Pies",
-		"uid": "12345"
+		"uid": "UWKG9KD3FYWqrXlp7H9auzQIXrg1"
 
-	}
+	},
+	"board5": {
+		"name": "Junk",
+    "description": "Pies",
+		"uid": "456"
+
+ }
 }
