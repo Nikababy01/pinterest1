@@ -1,16 +1,27 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import pins from '../pins/pins';
+import pinsData from '../../helpers/data/pinsData';
 import boardData from '../../helpers/data/boardData';
 import cardboard from '../cardboard/cardboard';
 import utils from '../../helpers/utils';
 
+
 const deleteBoard = (e) => {
   const boardId = e.target.closest('.card').id;
-  console.error('boardId', boardId);
   boardData.deleteBoard(boardId)
     // eslint-disable-next-line no-use-before-define
-    .then(() => buildBoard())
+    .then(() => {
+      pinsData.getPins(boardId).then((allBoardPins) => {
+        allBoardPins.forEach((pin) => {
+          if (boardId === pin.boardId) {
+            pinsData.deletePins(pin.id);
+          }
+        });
+      });
+      // eslint-disable-next-line no-use-before-define
+      buildBoard();
+    })
     .catch((err) => console.error('could not delete board', err));
 };
 
@@ -28,7 +39,7 @@ const buildBoard = () => {
       });
       domString += '</div>';
       utils.printToDom('board', domString);
-      $('body').on('click', '.board-cards', pins.viewSingleBoard);
+      $('body').on('click', '.board-cards', pins.viewSinglePins);
       $('body').on('click', '.delete-board', deleteBoard);
     })
     .catch((err) => console.error('get board broke', err));
