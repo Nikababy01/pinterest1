@@ -19,7 +19,7 @@ const checkLoginStatus = () => {
     if (user) {
       authDiv.addClass('hide');
       boardDiv.removeClass('hide');
-      pinsDiv.removeClass('hide');
+      pinsDiv.addClass('hide');
       userDiv.addClass('hide');
       singleUserDiv.removeClass('hide');
       logoutButton.removeClass('hide');
@@ -32,6 +32,8 @@ const checkLoginStatus = () => {
       boardDiv.addClass('hide');
       pinsDiv.addClass('hide');
       userDiv.addClass('hide');
+      logoutButton.addClass('hide');
+      returnButton.addClass('hide');
       singleUserDiv.addClass('hide');
     }
   });
