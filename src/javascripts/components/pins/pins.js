@@ -12,11 +12,13 @@ const returnButton = $('#navbar-return-button');
 const logoutButton = $('#navbar-logout-button');
 const pinsDiv = $('#pins');
 
+
 const deletePins = (e) => {
   const pinsId = e.target.closest('.card').id;
+  const boardId = e.data;
   pinsData.deletePins(pinsId)
     // eslint-disable-next-line no-use-before-define
-    .then(() => buildPins())
+    .then(() => buildPins(boardId))
     .catch((err) => console.error('could not delete pins', err));
 };
 
@@ -38,12 +40,12 @@ const buildPins = (selectedBoard) => {
       });
       domString += '</div>';
       utils.printToDom('pins', domString);
-      $('body').on('click', '.delete-pins', deletePins);
+      $('.delete-pins').click(selectedBoard, deletePins);
     })
     .catch((err) => console.error('get pins broke', err));
 };
 
-const viewSingleBoard = (e) => {
+const viewSinglePins = (e) => {
   const myUid = firebase.auth().currentUser.uid;
   boardData.getBoardsByUid(myUid)
     .then((boards) => {
@@ -55,4 +57,4 @@ const viewSingleBoard = (e) => {
 };
 
 
-export default { buildPins, viewSingleBoard };
+export default { buildPins, viewSinglePins };
