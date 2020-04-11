@@ -3,7 +3,7 @@ import 'firebase/auth';
 
 import pinsData from '../../helpers/data/pinsData';
 import boardData from '../../helpers/data/boardData';
-// import singleUser from '../singleUser/singleUser';
+import createNewPin from '../createNewPin/createNewPin';
 import utils from '../../helpers/utils';
 import cardpins from '../cardpins/cardpins';
 
@@ -22,12 +22,28 @@ const deletePins = (e) => {
     .catch((err) => console.error('could not delete pins', err));
 };
 
+const makeNewPin = (e) => {
+  e.preventDefault();
+  const brandNewPin = {
+    imageUrl: $('#new-pin-image').val(),
+    boardId: 'board1',
+  };
+  pinsData.addPins(brandNewPin)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildPins();
+      utils.printToDom('add-new-pin', '');
+    })
+    .catch((err) => console.error('could not add pin', err));
+};
 
 const buildPins = (selectedBoard) => {
   pinsData.getPins(selectedBoard)
     .then((pins) => {
       let domString = '';
+      domString += '<div class="text-center">';
       domString += '<h2 class="text-center">Pins</h2>';
+      domString += '<button class="btn btn-success add-newpin" id="create-pin-form">Add Pin</button>';
       domString += '<div class= "d-flex flex-wrap">';
       pins.forEach((pin) => {
         if (pin.boardId === selectedBoard.id) {
@@ -41,6 +57,8 @@ const buildPins = (selectedBoard) => {
       domString += '</div>';
       utils.printToDom('pins', domString);
       $('.delete-pins').click(selectedBoard, deletePins);
+      $('body').on('click', '#form-pin-creator', makeNewPin);
+      $('#create-pin-form').click(createNewPin.buildNewPin); // builds the form for the new pin
     })
     .catch((err) => console.error('get pins broke', err));
 };
