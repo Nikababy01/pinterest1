@@ -10,6 +10,7 @@ const boardDiv = $('#board');
 const pinsDiv = $('#pins');
 const userDiv = $('#user');
 const addnewboardDiv = $('#add-new-board');
+const addnewpinDiv = $('#add-new-pin');
 const logoutButton = $('#navbar-logout-button');
 const returnButton = $('#navbar-return-button');
 
@@ -22,6 +23,7 @@ const checkLoginStatus = () => {
       pinsDiv.addClass('hide');
       userDiv.addClass('hide');
       addnewboardDiv.removeClass('hide');
+      addnewpinDiv.removeClass('hide');
       logoutButton.removeClass('hide');
       returnButton.addClass('hide');
       board.buildBoard();
@@ -35,6 +37,7 @@ const checkLoginStatus = () => {
       logoutButton.addClass('hide');
       returnButton.addClass('hide');
       addnewboardDiv.addClass('hide');
+      addnewpinDiv.removeClass('hide');
     }
   });
 };

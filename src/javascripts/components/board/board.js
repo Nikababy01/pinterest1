@@ -37,7 +37,7 @@ const makeNewBoard = (e) => {
     .then(() => {
       // eslint-disable-next-line no-use-before-define
       buildBoard();
-      utils.printToDom('add-new-board', '');
+      utils.printToDom('add-new-board', ''); // makes the boardview go away
     })
     .catch((err) => console.error('could not add board', err));
 };
@@ -60,7 +60,7 @@ const buildBoard = () => {
       $('body').on('click', '.board-cards', pins.viewSinglePins);
       $('body').on('click', '.delete-board', deleteBoard);
       $('body').on('click', '#form-board-creator', makeNewBoard);
-      $('#create-board-form').click(createNewBoard.buildNewBoard);
+      $('#create-board-form').click(createNewBoard.buildNewBoard); // add board button builds the form
     })
     .catch((err) => console.error('get board broke', err));
 };
