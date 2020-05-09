@@ -5,7 +5,6 @@ import pinsData from '../../helpers/data/pinsData';
 import boardData from '../../helpers/data/boardData';
 import cardboard from '../cardboard/cardboard';
 import createNewBoard from '../createNewBoard/createNewBoard';
-import createNewPin from '../createNewPin/createNewPin';
 import utils from '../../helpers/utils';
 
 
@@ -62,8 +61,7 @@ const buildBoard = () => {
       $('body').on('click', '.delete-board', deleteBoard);
       $('body').on('click', '#form-board-creator', makeNewBoard);
       $('#create-board-form').click(createNewBoard.buildNewBoard); // add board button builds the form
-      $('body').on('click', '#create-pin-form', createNewPin.buildNewPin);// builds the form for the new pin
-      // $('#create-pin-form').click(createNewPin.buildNewPin); // builds the form for the new pin
+      // $('body').on('click', '#create-pin-form', createNewPin.buildNewPin);// builds the form for the new pin
     })
     .catch((err) => console.error('get board broke', err));
 };
