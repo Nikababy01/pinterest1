@@ -4,6 +4,7 @@ import 'firebase/auth';
 import userComponent from '../../components/user/user';
 // import pins from '../../components/pins/pins';
 import board from '../../components/board/board';
+import pins from '../../components/pins/pins';
 
 const authDiv = $('#auth');
 const boardDiv = $('#board');
@@ -11,6 +12,7 @@ const pinsDiv = $('#pins');
 const userDiv = $('#user');
 const addnewboardDiv = $('#add-new-board');
 const addnewpinDiv = $('#add-new-pin');
+const editpinDiv = $('#edit-pin');
 const logoutButton = $('#navbar-logout-button');
 const returnButton = $('#navbar-return-button');
 
@@ -24,6 +26,7 @@ const checkLoginStatus = () => {
       userDiv.addClass('hide');
       addnewboardDiv.removeClass('hide');
       addnewpinDiv.removeClass('hide');
+      editpinDiv.removeClass('hide');
       logoutButton.removeClass('hide');
       returnButton.addClass('hide');
       board.buildBoard();
@@ -38,8 +41,10 @@ const checkLoginStatus = () => {
       returnButton.addClass('hide');
       addnewboardDiv.addClass('hide');
       addnewpinDiv.removeClass('hide');
+      editpinDiv.addClass('hide');
     }
   });
+  pins.clickEvents();
 };
 
 export default { checkLoginStatus };

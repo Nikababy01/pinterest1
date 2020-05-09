@@ -3,9 +3,9 @@ import 'firebase/auth';
 
 import pinsData from '../../helpers/data/pinsData';
 import boardData from '../../helpers/data/boardData';
-import createNewPin from '../createNewPin/createNewPin';
 import utils from '../../helpers/utils';
 import cardpins from '../cardpins/cardpins';
+import editPin from '../editPin/editPin';
 
 const boardDiv = $('#board');
 const returnButton = $('#navbar-return-button');
@@ -24,26 +24,34 @@ const deletePins = (e) => {
 
 const makeNewPin = (e) => {
   e.preventDefault();
+  // const selectedBoard = e.target.dataset.boardId;
+  const selectedBoard = $('#create-pin-form').data('board-id');
+  console.log('dataset', selectedBoard);
   const brandNewPin = {
     imageUrl: $('#new-pin-image').val(),
-    boardId: 'board1',
+    boardId: selectedBoard,
   };
   pinsData.addPins(brandNewPin)
     .then(() => {
       // eslint-disable-next-line no-use-before-define
-      buildPins();
       utils.printToDom('add-new-pin', '');
     })
     .catch((err) => console.error('could not add pin', err));
 };
 
+const editPinEvent = (e) => {
+  e.preventDefault();
+  console.log('form clicked');
+  const pinsId = e.target.closest('.card').id;
+  editPin.showForm(pinsId);
+};
+
 const buildPins = (selectedBoard) => {
-  pinsData.getPins(selectedBoard)
+  pinsData.getPinsbyBoards(selectedBoard)
     .then((pins) => {
       let domString = '';
       domString += '<div class="text-center">';
       domString += '<h2 class="text-center">Pins</h2>';
-      domString += '<button class="btn btn-success add-newpin" id="create-pin-form">Add Pin</button>';
       domString += '<div class= "d-flex flex-wrap">';
       pins.forEach((pin) => {
         if (pin.boardId === selectedBoard.id) {
@@ -57,10 +65,12 @@ const buildPins = (selectedBoard) => {
       domString += '</div>';
       utils.printToDom('pins', domString);
       $('.delete-pins').click(selectedBoard, deletePins);
-      $('body').on('click', '#form-pin-creator', makeNewPin);
-      $('#create-pin-form').click(createNewPin.buildNewPin); // builds the form for the new pin
     })
     .catch((err) => console.error('get pins broke', err));
+};
+const clickEvents = () => {
+  $('body').on('click', '#form-pin-creator', makeNewPin);
+  $('body').on('click', '.edit-pins', editPinEvent);
 };
 
 const viewSinglePins = (e) => {
@@ -75,4 +85,9 @@ const viewSinglePins = (e) => {
 };
 
 
-export default { buildPins, viewSinglePins };
+export default {
+  buildPins,
+  viewSinglePins,
+  makeNewPin,
+  clickEvents,
+};

@@ -8,10 +8,10 @@ const pinsMaker = (pins) => {
   domString += '<div class= "card-body">';
   domString += `<img class = "card-img-top" src= "${pins.imageUrl}" alt= "card image">`;
   domString += '<button class="btn btn-danger delete-pins"><i class="fas fa-trash-alt"></i></button>';
+  domString += '<button class="btn btn-primary edit-pins"><i class="fas fa-pencil-alt"></i></button>';
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
-
   return domString;
 };
 

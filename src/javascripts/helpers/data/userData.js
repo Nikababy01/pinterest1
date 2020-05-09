@@ -5,7 +5,6 @@ import apiKeys from '../apiKeys.json';
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getUser = () => new Promise((resolve, reject) => {
-  // axios.get(`${baseUrl}/users.json`).then((response) => { console.log(response); });
   axios.get(`${baseUrl}/users.json`)
     .then((response) => {
       const myUser = response.data;
