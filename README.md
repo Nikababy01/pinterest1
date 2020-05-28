@@ -31,4 +31,5 @@ This project showcases the use of firebase and json data. We used firebase to st
 1. In your browser go to `http://localhost:9999`
 
 ## Contributors
+
 [Monique Bass](https://github.com/Nikababy01)
