@@ -1,9 +1,39 @@
+.card.Drinks{
+  background-image: url(http://intoxicology.net/wp-content/uploads/2014/05/margarita-1.jpg);
+  z-index: 3;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.card.Decor{
+  background-image: url(https://images.homedepot-static.com/lifestyleimages/1024x682/910c8a77-196f-4f68-a9ad-bc9ee4c907a5.jpeg);
+  z-index: 3;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+
+.card.Fitness{
+  background-image: url(https://redefiningstrength.com/wp-content/uploads/2014/10/sandbag-core-exercises-1024x768.jpg);
+  z-index: 3;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.card.Food{
+  background-image: url(https://i.ytimg.com/vi/O84C-LOAyQg/maxresdefault.jpg);
+  z-index: 3;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
 .mycard-body{
-  background-color: black;
+  // background-color: black;
   color: white;
   height: 150px;
   width:150;
   text-align: center;
+  align-content: flex-end;
   }
 
 .card-header{
@@ -11,6 +41,7 @@
   font-family: 'Franklin Gothic Medium';
   font-size: 48px;
   font-weight: bold;
+  color: white;
 }
 
  h2{
